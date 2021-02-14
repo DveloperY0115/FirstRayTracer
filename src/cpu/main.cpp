@@ -37,6 +37,8 @@ color ray_color(const ray& r, const hittable& world, int depth)
 }
 
 hittable_list random_scene() {
+    std::cerr << "Creating world...\n";
+
     hittable_list world;
 
     auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
@@ -88,7 +90,6 @@ hittable_list random_scene() {
 int main()
 {
     // configure output image
-
     const auto aspect_ratio = 16.0 / 9.0;
     const int image_width = 400;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
@@ -96,7 +97,7 @@ int main()
     const int max_depth = 50;
 
     // set world
-    hittable_list world = random_scene();
+    auto world = random_scene();
     // set camera
 
     point3 lookfrom(13, 2, 3);
