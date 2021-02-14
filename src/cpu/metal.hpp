@@ -27,7 +27,7 @@ public:
          * generate a ray object that originates from the point of incidence, and spreads out toward certain direction
          * the direction might be randomized according to the fuzziness of this material
          */
-        scattered = ray(rec.p, reflected + fuzz * random_in_unit_sphere());
+        scattered = ray(rec.p, reflected + fuzz * random_in_unit_sphere(), r_in.time());
         attenuation = albedo;
         // if fuzziness is too high, the light may not be reflected off the surface (rather, it seems to be absorbed)
         return (dot_product(scattered.direction(), rec.normal) > 0);

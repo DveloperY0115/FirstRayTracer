@@ -31,7 +31,7 @@ public:
          * create actual 'ray' instance and assign its reference to 'scattered',
          * also assign albedo value to 'attenuation'
          */
-        scattered = ray(rec.p, scatter_direction);
+        scattered = ray(rec.p, scatter_direction, r_in.time());
         attenuation = albedo;
         return true;
     }
