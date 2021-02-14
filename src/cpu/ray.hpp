@@ -12,34 +12,35 @@
 
 class ray{
 public:
-    ray()
-    {
-        // Do nothing
-    }
-    ray(const point3& origin, const vector3& direction)
-            : orig(origin), dir(direction)
-    {
+    ray() {
         // Do nothing
     }
 
-    vector3 origin() const
-    {
+    ray(const point3& origin, const vector3& direction, double time = 0.0)
+            : orig(origin), dir(direction), tm(time) {
+        // Do nothing
+    }
+
+    point3 origin() const {
         return orig;
     }
 
-    vector3 direction() const
-    {
+    vector3 direction() const {
         return dir;
     }
 
-    vector3 at(double t) const
-    {
+    double time() const {
+        return tm;
+    }
+
+    vector3 at(double t) const {
         return orig + t * dir;
     }
 
 public:
-    vector3 orig;
+    point3 orig;
     vector3 dir;
+    double tm;
 };
 
 #endif //FIRSTRAYTRACER_RAY_HPP
